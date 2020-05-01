@@ -3,7 +3,7 @@
   <div class="content">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
       <div class="container">
-        <a class="navbar-brand" href="#">Online bookstore</a>
+        <a class="navbar-brand" href="#">Online Bookstore</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
                 aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -42,33 +42,7 @@
 
     <!-- Page Content -->
     <div class="container">
-
-      <div class="row">
-
-        <div class="col-lg-3">
-
-          <div class="list-group">
-            <a href="#" class="list-group-item">Category 1</a>
-            <a href="#" class="list-group-item">Category 2</a>
-            <a href="#" class="list-group-item">Category 3</a>
-          </div>
-
-        </div>
-        <!-- /.col-lg-3 -->
-
-        <div class="col-lg-9">
-
-
-            <app-book-list></app-book-list>
-
-          <!-- /.row -->
-
-        </div>
-        <!-- /.col-lg-9 -->
-
-      </div>
-      <!-- /.row -->
-
+      <router-outlet></router-outlet>
     </div>
   </div>
   <!-- /.container -->
