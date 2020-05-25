@@ -5,6 +5,7 @@ import {ActivatedRoute} from '@angular/router';
 import {NgbPaginationConfig} from '@ng-bootstrap/ng-bootstrap';
 import {CartService} from '../../services/cart.service';
 import {CartItem} from '../../common/cart-item';
+import {NgxSpinnerService} from 'ngx-spinner';
 
 @Component({
   selector: 'app-book-list',
@@ -27,7 +28,8 @@ export class BookListComponent implements OnInit {
     private bookService: BookService,
     private activatedRoute: ActivatedRoute,
     private cartService: CartService,
-    private config: NgbPaginationConfig
+    private config: NgbPaginationConfig,
+    private spinnerService: NgxSpinnerService
   ) {
     config.maxSize = 3;
     config.boundaryLinks = true;
@@ -40,6 +42,8 @@ export class BookListComponent implements OnInit {
   }
 
   listBooks() {
+    // starts the loader/spinner
+    this.spinnerService.show();
     this.searchMode = this.activatedRoute.snapshot.paramMap.has('keyword');
 
     if (this.searchMode) {
@@ -86,6 +90,8 @@ export class BookListComponent implements OnInit {
 
   processPaginate() {
     return data => {
+      // stops the spinner/loader
+      this.spinnerService.hide();
       this.books = data._embedded.books;
       // page number starts from 1 index
       this.currentPage = data.page.number + 1;

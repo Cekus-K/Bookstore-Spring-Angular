@@ -2,6 +2,7 @@ import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import {HttpClientModule} from '@angular/common/http';
 import {RouterModule, Routes} from '@angular/router';
+import {NgxSpinnerModule} from 'ngx-spinner';
 
 import {AppComponent} from './app.component';
 import {BookListComponent} from './components/book-list/book-list.component';
@@ -11,7 +12,7 @@ import {BookCategoryComponent} from './components/book-category/book-category.co
 import {SearchComponent} from './components/search/search.component';
 import {BookDetailsComponent} from './components/book-details/book-details.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-import { CartStatusComponent } from './components/cart-status/cart-status.component';
+import {CartStatusComponent} from './components/cart-status/cart-status.component';
 
 const routes: Routes = [
   {path: 'books/:id', component: BookDetailsComponent},
@@ -36,6 +37,7 @@ const routes: Routes = [
     BrowserModule,
     HttpClientModule,
     NgbModule,
+    NgxSpinnerModule,
     RouterModule.forRoot(routes)
   ],
   providers: [
