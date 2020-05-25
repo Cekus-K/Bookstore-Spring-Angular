@@ -1,0 +1,50 @@
+<div class="row">
+  <div class="col-md-3">
+    <app-book-category></app-book-category>
+  </div>
+  <div class="col-md-9">
+    <div *ngIf="cartItems.length > 0">
+      <table class="table table-bordered">
+        <thead class="bg-dark text-light">
+        <tr>
+          <th width="20%">Book Image</th>
+          <th width="50%">Book Detail</th>
+          <th width="30%"></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let cartItem of cartItems">
+          <td>
+            <img [src]="cartItem.imageUrl" class="img-responsive" width="150" height="200">
+          </td>
+          <td>
+            <p>{{ cartItem.name }}</p>
+            <p>{{ cartItem.unitPrice | currency: 'PLN'}}</p>
+          </td>
+          <td>
+            <div class="row">
+              <div class="col-md-12">
+                <p>Quantity: {{ cartItem.quantity }}</p>
+              </div>
+              <div class="col-md-12 mt-2">
+                <p>Subtotal: {{ cartItem.quantity * cartItem.unitPrice | currency: 'PLN'}}</p>
+              </div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2"></td>
+          <td class="font-weight-bold">
+            <p>Total quantity: {{ totalQuantity }}</p>
+            <p>Shipping: FREE</p>
+            <p>Total Price: {{ totalPrice | currency: 'PLN'}}</p>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+    <div *ngIf="cartItems.length == 0" class="alert alert-warning" role="alert">
+      Your cart is empty
+    </div>
+  </div>
+</div>
